@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+    --primary-color: #ff4d6d;
+    --text-color: #590d22;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow-x: hidden;
+
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffd1ff, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1,
+h2,
+h3,
+.title-text {
+    font-family: 'Dancing Script', cursive;
+    color: #d00000;
+    /* Deep Valentine Red */
+    /* Darker text for better visibility on light glass */
+    font-weight: 700;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+    /* White shadow for pop */
+}
+
+.title-text {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+/* Glassmorphism Card Style */
+.card-custom {
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+
+.card-custom:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    background: rgba(255, 255, 255, 0.35);
+    /* Lighter on hover */
+}
+
+/* Glass Buttons */
+.btn-custom {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #a41b36;
+    /* Deep red for text */
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-custom:hover {
+    background: #fff;
+    color: #ff4d6d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Specific styling for the image on index */
+.main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+    margin-top: 2rem;
+    max-height: 400px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Inputs */
+.form-control {
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 1.2rem;
+    color: #590d22;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 4px rgba(255, 77, 109, 0.3);
+    color: #590d22;
+}
+
+/* Floating hearts background animation - subtle overlay */
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    /* Behind content but above gradient */
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -100px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    clip-path: path("M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z");
+    animation: float 8s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.5);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
